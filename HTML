@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Translator Pro V5</title>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<!-- MENU BUTTON --> 
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<!-- SIDE MENU -->
+<div class="side-menu" id="sideMenu">
+    <h3>Menu</h3>
+
+    <button onclick="toggleTheme()">🌙 Dark Mode</button>
+    <button onclick="showHistory()">📜 History</button>
+    <button onclick="clearHistory()">🗑 Clear History</button>
+    <div id="historyBox"></div>
+</div>
+
+<!-- OVERLAY -->
+<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+<!-- WELCOME SCREEN -->
+<div class="welcome" id="welcomeScreen">
+    <div class="welcome-box">
+
+        <h1 class="typing-title" id="title1">🤖 AI Translator</h1>
+
+        <p>Translate instantly with AI power</p>
+
+        <button class="start-btn" onclick="startApp()">🚀 Get Started</button>
+    </div>
+</div>
+
+<!-- MAIN APP -->
+<div class="main-app" id="mainApp">
+
+<div class="card" style="display:flex; flex-direction:column; gap:12px;">
+
+    <h2 class="typing-title" id="title2">🤖 AI Translator Pro V5</h2>
+
+    <!-- MODE + CAMERA MOVED HERE -->
+    <div class="mode">
+        Mode: Smart Google AI Engine
+
+        <!-- 📷 CAMERA MOVED HERE -->
+        <button class="camera-btn" onclick="openCamera()">📷</button>
+    </div>
+
+    <!-- INPUT WITH FILE MENU -->
+    <div class="input-wrapper">
+
+        <textarea id="inputText" class="chat-input" rows="1" placeholder="Type or speak..."></textarea>
+
+        <!-- ⋮ FILE MENU BUTTON -->
+        <button class="file-menu-btn" onclick="toggleFileMenu()">⋮</button>
+
+    </div>
+
+    <!-- FILE POPUP -->
+    <div class="file-popup" id="filePopup">
+        <h4>Files</h4>
+
+        <input type="file" id="fileInput" accept=".txt" onchange="loadFile(event)">
+
+        <div id="fileList"></div>
+
+        <button onclick="toggleFileMenu()">Close</button>
+    </div>
+
+    <select id="fromLang">
+        <option value="en">English</option>
+        <option value="hi">Hindi</option>
+        <option value="te">Telugu</option>
+        <option value="ta">Tamil</option>
+        <option value="kn">Kannada</option>
+        <option value="ml">Malayalam</option>
+    </select>
+
+    <div class="row">
+        <button class="small-btn" onclick="swapLang()">🔁 Swap</button>
+        <button class="small-btn mic" onclick="startVoice()">🎤 Voice</button>
+    </div>
+
+    <textarea id="outputText" class="chat-output" rows="1" placeholder="Translation..." readonly></textarea>
+
+    <select id="toLang">
+        <option value="te">Telugu</option>
+        <option value="hi">Hindi</option>
+        <option value="en">English</option>
+        <option value="ta">Tamil</option>
+        <option value="kn">Kannada</option>
+        <option value="ml">Malayalam</option>
+    </select>
+
+    <button class="btn" onclick="translateText()">Translate</button>
+    <button class="btn ai-btn" onclick="speakOutput()">🔊 Speak Output</button>
+
+</div>
+</div>
+
+<!-- CAMERA MODAL -->
+<div class="camera-modal" id="cameraModal">
+    <video id="camera" autoplay></video>
+    <button onclick="captureImage()">📸 Capture</button>
+    <button onclick="closeCamera()">❌ Close</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
